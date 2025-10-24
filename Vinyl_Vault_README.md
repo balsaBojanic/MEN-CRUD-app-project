@@ -38,7 +38,7 @@ Each card in this list represents a single MVP user story.
 
 ### 2. Wireframes
 
-Upload screenshots or links to your wireframes (Figma, Balsamiq, or hand-drawn).  
+Upload screenshots or links to your wireframes .  
 Each wireframe should have its own Trello card.
 
 **Recommended wireframes:**
