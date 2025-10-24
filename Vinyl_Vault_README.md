@@ -82,7 +82,7 @@ Upload your ERD diagram as a card attachment.
 - One Buyer → One Cart
 - One Cart → Many Vinyls
 
-![DatabaseIMG]()
+![DatabaseIMG](https://github.com/balsaBojanic/MEN-CRUD-app-project/blob/main/database_image.jpeg?raw=true)
 
 
 
