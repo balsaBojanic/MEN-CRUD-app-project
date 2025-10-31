@@ -1,13 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CookBook - Home</title>
-</head>
+<%- include('partials/head') %>
 <body>
-  <%- include('./partials/_navbar.ejs') %>
-  <h1>Welcome to CookBook</h1>
-  <p>Your personal pantry manager for cooking enthusiasts!</p>
+    <%- include('partials/header') %>
+
+    <section id="justIn">
+        <div id="mptekst">
+            <h1>WELCOME TO VINYL VAULT</h1>
+            <h6>Your digital marketplace for rare and collectible vinyl records</h6>
+            <p>Browse our collection of vinyl records from various sellers. Find your favorite albums, discover new music, and build your collection.</p>
+            <% if (!user) { %>
+                <div style="margin-top: 20px;">
+                    <a href="/auth/sign-up" style="background-color: #900020; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-right: 10px;">Sign Up</a>
+                    <a href="/auth/sign-in" style="background-color: #bdbdbd; color: #2d2d2d; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Sign In</a>
+                </div>
+            <% } %>
+        </div>
+    </section>
+
+    <section id="recordssection">
+        <h1>FEATURED VINYLS</h1>
+        <div id="container">
+            <% if (vinyls && vinyls.length > 0) { %>
+                <% vinyls.slice(0, 6).forEach(vinyl => { %>
+                    <div>
+                        <img class="album" src="<%= vinyl.imageURL || '/default-vinyl.jpg' %>" alt="<%= vinyl.title %>">
+                        <div class="recordinfo">
+                            <h2><%= vinyl.title %></h2>
+                            <hr>
+                            <h3><%= vinyl.artist %></h3>
+                            <p>Price: $<%= vinyl.price %></p>
+                            <p>Seller: <%= vinyl.seller %></p>
+                            <a href="/vinyls/<%= vinyl._id %>" style="color: #900020; text-decoration: none; margin-top: 10px;">View Details</a>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p style="color: #bdbdbd; font-size: 20px;">No vinyls available yet.</p>
+            <% } %>
+        </div>
+    </section>
+
+    <%- include('partials/footer') %>
 </body>
 </html>

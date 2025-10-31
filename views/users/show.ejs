@@ -1,24 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= userProfile.username %>'s Pantry</title>
-</head>
+<%- include('../partials/head') %>
 <body>
-  <%- include('../partials/_navbar.ejs') %>
-  <h1><%= userProfile.username %>'s Pantry</h1>
-  
-  <% if (userProfile.pantry && userProfile.pantry.length > 0) { %>
-    <ul>
-      <% userProfile.pantry.forEach(item => { %>
-        <li><%= item.name %></li>
-      <% }) %>
-    </ul>
-  <% } else { %>
-    <p>There are no items in this pantry.</p>
-  <% } %>
-  
-  <a href="/users">Back to Community</a>
+    <%- include('../partials/header') %>
+
+    <section id="recordssection">
+        <div style="max-width: 800px; margin: 0 auto; background-color: rgba(189, 189, 189, 0.9); padding: 40px; border-radius: 20px;">
+            <h1 style="color: #900020; text-align: center; margin-bottom: 30px;">USER PROFILE</h1>
+            
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h2 style="color: #2d2d2d; font-size: 32px;"><%= userProfile.username %></h2>
+                <p style="font-size: 20px; color: #2d2d2d;">Role: <%= userProfile.role %></p>
+                <p style="font-size: 18px; color: #2d2d2d;">Email: <%= userProfile.email %></p>
+            </div>
+
+            <% if (userProfile.role === 'seller' && userProfile.vinyls && userProfile.vinyls.length > 0) { %>
+                <h3 style="color: #900020; margin-bottom: 20px;">My Vinyls for Sale:</h3>
+                <div id="container">
+                    <% userProfile.vinyls.forEach(vinyl => { %>
+                        <div>
+                            <img class="album" src="<%= vinyl.imageURL || '/default-vinyl.jpg' %>" alt="<%= vinyl.title %>">
+                            <div class="recordinfo">
+                                <h2><%= vinyl.title %></h2>
+                                <hr>
+                                <h3><%= vinyl.artist %></h3>
+                                <p>Price: $<%= vinyl.price %></p>
+                                <a href="/vinyls/<%= vinyl._id %>" style="color: #900020; text-decoration: none; margin-top: 10px;">View Details</a>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            <% } else if (userProfile.role === 'seller') { %>
+                <p style="text-align: center; color: #2d2d2d; font-size: 18px;">You haven't listed any vinyls yet.</p>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="/vinyls/new" style="background-color: #900020; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Add Your First Vinyl</a>
+                </div>
+            <% } %>
+        </div>
+    </section>
+
+    <%- include('../partials/footer') %>
 </body>
 </html>

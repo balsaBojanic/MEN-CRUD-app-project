@@ -1,0 +1,54 @@
+<%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+
+    <section id="justIn" style="min-height: 80vh; display: flex; justify-content: center; align-items: center;">
+        <div style="background-color: rgba(189, 189, 189, 0.9); padding: 40px; border-radius: 20px; width: 500px;">
+            <h1 style="color: #900020; text-align: center; margin-bottom: 30px;">ADD NEW VINYL</h1>
+            
+            <form action="/vinyls" method="POST">
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; color: #2d2d2d;">Title:</label>
+                    <input type="text" name="title" required style="width: 100%; padding: 10px; border: 2px solid #900020; border-radius: 5px;">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; color: #2d2d2d;">Artist:</label>
+                    <input type="text" name="artist" required style="width: 100%; padding: 10px; border: 2px solid #900020; border-radius: 5px;">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; color: #2d2d2d;">Genre:</label>
+                    <input type="text" name="genre" required style="width: 100%; padding: 10px; border: 2px solid #900020; border-radius: 5px;">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; color: #2d2d2d;">Price:</label>
+                    <input type="number" name="price" step="0.01" min="0" required style="width: 100%; padding: 10px; border: 2px solid #900020; border-radius: 5px;">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; color: #2d2d2d;">Image URL:</label>
+                    <input type="url" name="imageURL" style="width: 100%; padding: 10px; border: 2px solid #900020; border-radius: 5px;">
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 5px; color: #2d2d2d;">Condition:</label>
+                    <select name="condition" required style="width: 100%; padding: 10px; border: 2px solid #900020; border-radius: 5px;">
+                        <option value="">Select Condition</option>
+                        <option value="Mint">Mint</option>
+                        <option value="Near Mint">Near Mint</option>
+                        <option value="Very Good">Very Good</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                    </select>
+                </div>
+                
+                <button type="submit" style="width: 100%; background-color: #900020; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer;">Add Vinyl</button>
+            </form>
+        </div>
+    </section>
+
+    <%- include('../partials/footer') %>
+</body>
+</html>

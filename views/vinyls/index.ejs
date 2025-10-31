@@ -1,0 +1,44 @@
+<%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+
+    <section id="recordssection">
+        <h1>ALL VINYLS</h1>
+        
+        <% if (user && user.role === 'seller') { %>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <a href="/vinyls/new" style="background-color: #900020; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Add New Vinyl</a>
+            </div>
+        <% } %>
+
+        <div id="container">
+            <% if (vinyls && vinyls.length > 0) { %>
+                <% vinyls.forEach(vinyl => { %>
+                    <div>
+                        <img class="album" src="<%= vinyl.imageURL || '/default-vinyl.jpg' %>" alt="<%= vinyl.title %>">
+                        <div class="recordinfo">
+                            <h2><%= vinyl.title %></h2>
+                            <hr>
+                            <h3><%= vinyl.artist %></h3>
+                            <p>Genre: <%= vinyl.genre %></p>
+                            <p>Condition: <%= vinyl.condition %></p>
+                            <p>Price: $<%= vinyl.price %></p>
+                            <p>Seller: <%= vinyl.seller %></p>
+                            <a href="/vinyls/<%= vinyl._id %>" style="color: #900020; text-decoration: none; margin-top: 10px;">View Details</a>
+                            <% if (user && user.role === 'buyer') { %>
+                                <form action="/cart/<%= vinyl._id %>" method="POST" style="margin-top: 10px;">
+                                    <button type="submit" style="background-color: #900020; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">Add to Cart</button>
+                                </form>
+                            <% } %>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p style="color: #bdbdbd; font-size: 20px;">No vinyls available yet.</p>
+            <% } %>
+        </div>
+    </section>
+
+    <%- include('../partials/footer') %>
+</body>
+</html>

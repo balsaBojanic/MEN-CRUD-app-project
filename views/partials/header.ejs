@@ -1,0 +1,30 @@
+<header>
+    <h1>Vinyl Vault</h1>
+    <h3>Your digital vinyl marketplace</h3>
+</header>
+<nav>
+    <div id="leftmenu">
+        <a href="/">Home</a>
+        <a href="/vinyls">Browse Vinyls</a>
+        <% if (user && user.role === 'seller') { %>
+            <a href="/vinyls/new">Add Vinyl</a>
+        <% } %>
+    </div>
+    <div id="logo">
+        <a href="/">
+            <img src="/logo.jpg" alt="logo">
+        </a>
+    </div>
+    <div id="rightmenu">
+        <% if (user) { %>
+            <% if (user.role === 'buyer') { %>
+                <a href="/cart">Cart</a>
+            <% } %>
+            <a href="/users/<%= user._id %>">Profile</a>
+            <a href="/auth/sign-out">Sign Out</a>
+        <% } else { %>
+            <a href="/auth/sign-in">Sign In</a>
+            <a href="/auth/sign-up">Sign Up</a>
+        <% } %>
+    </div>
+</nav>

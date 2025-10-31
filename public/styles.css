@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #2d2d2d;
+    font-family: Arial, sans-serif;
+    color: #900020;
+    line-height: 1.6;
+}
+
+header {
+    position: relative;
+    text-align: center;
+    padding: 120px 20px 50px 20px;
+    color: #900020;
+    font-size: 16px;
+    font-family: "UnifrakturMaguntia", serif;
+    z-index: 1;
+}
+
+header h1 {
+    font-size: 45px;
+    font-weight: bolder;
+    color: #900020;
+}
+
+header h3 {
+    padding-left: 10px;
+    color: #900020;
+}
+
+nav {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #121212;
+    padding: 15px 40px;
+    border-radius: 40px;
+    margin: auto;
+    height: 40px;
+    width: 90%;
+    z-index: 1000;
+    max-width: 1000px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    transform: scale(1.1);
+    color: #900020;
+    transition: all 0.3s;
+    text-decoration-line: underline;
+    text-decoration-color: #900020;
+}
+
+#logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 6px solid #2d2d2d;
+    z-index: 1001;
+}
+
+#logo img {
+    transform: translateY(3px);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+#leftmenu {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+#rightmenu {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+#justIn {
+    background-image: url("/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    min-height: 600px;
+    width: 100%;
+    padding: 150px 20px 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;        
+    align-items: center;   
+    gap: 20px;  
+}
+
+#mptekst {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+#mptekst h1 {
+    font-size: 48px;
+    font-weight: bolder;
+    text-shadow: 0 0 2px #000000;
+    margin-bottom: 20px;
+}
+
+#mptekst h6 {
+    padding-top: 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#mptekst p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+#recordssection {
+    min-height: 590px;
+    text-align: center;
+    padding: 50px 20px 140px 20px;
+    background-color: #2d2d2d; 
+}
+
+#recordssection h1 {
+    font-size: 60px;
+    color: #bdbdbd;
+    margin-bottom: 40px;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 35px;
+}
+
+#container div {
+    width: 280px;
+    height: 350px;
+    background-color: rgba(189, 189, 189, 0.5);
+    border-radius: 20px;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    position: relative;
+    overflow: visible;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.album {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.recordinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    width: 100%;
+}
+
+.recordinfo h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #900020;
+    margin-bottom: 10px;
+}
+
+.recordinfo h3 {
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #900020;
+}
+
+.recordinfo p {
+    color: #900020;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+hr {
+    height: 2px;
+    width: 80%;
+    background-color: #900020;
+    border: none;
+    margin: 10px 0;
+}
+
+footer {
+    display: flex;
+    border-top: 2px solid #900020;
+    background-color: #121212;
+    color: #bdbdbd;
+    padding: 30px;
+    gap: 20px;
+}
+
+#divider {
+    width: 2px;
+    background-color: #bdbdbd;
+    margin: 5px 0;
+}
+
+#contactinfo a {
+    color: #900020;
+    text-decoration-line: none;
+}
+
+input, select, textarea {
+    font-family: Arial, sans-serif;
+}
+
+button {
+    font-family: Arial, sans-serif;
+}
+
+#container p {
+    color: #900020;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+a[style*="background-color"] {
+    display: inline-block;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin: 10px 5px;
+}
+
+a[style*="background-color"]:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}

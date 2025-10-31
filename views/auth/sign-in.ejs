@@ -1,18 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign In</title>
-</head>
+<%- include('../partials/head') %>
 <body>
-  <h1>Sign in</h1>
-  <form action="/auth/sign-in" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username" required />
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" required />
-    <button type="submit">Sign in</button>
-  </form>
+    <%- include('../partials/header') %>
+
+    <section id="justIn" style="min-height: 80vh; display: flex; justify-content: center; align-items: center;">
+        <div style="background-color: rgba(189, 189, 189, 0.9); padding: 40px; border-radius: 20px; width: 400px;">
+            <h1 style="color: #900020; text-align: center; margin-bottom: 30px;">SIGN IN</h1>
+            
+            <form action="/auth/sign-in" method="POST">
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; color: #2d2d2d;">Username:</label>
+                    <input type="text" name="username" required style="width: 100%; padding: 10px; border: 2px solid #900020; border-radius: 5px;">
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 5px; color: #2d2d2d;">Password:</label>
+                    <input type="password" name="password" required style="width: 100%; padding: 10px; border: 2px solid #900020; border-radius: 5px;">
+                </div>
+                
+                <button type="submit" style="width: 100%; background-color: #900020; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer;">Sign In</button>
+            </form>
+            
+            <p style="text-align: center; margin-top: 20px;">
+                Don't have an account? <a href="/auth/sign-up" style="color: #900020;">Sign Up</a>
+            </p>
+        </div>
+    </section>
+
+    <%- include('../partials/footer') %>
 </body>
 </html>
